@@ -9,8 +9,9 @@
         <isolate_script>true</isolate_script>
         <messages/>
         <name>NeedIt Set Requested for</name>
-        <order/>
+        <order>100</order>
         <script><![CDATA[function onLoad() {
+	alert("I'm first is right!");
    //Type appropriate comment here, and begin script below
    if(g_form.isNewRecord()){
         g_form.setValue('u_requested_for',g_user.userID);
@@ -22,7 +23,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>8bed35ffdbf23300e1ca294648961902</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>NeedIt Set Requested for</sys_name>
         <sys_overrides/>
         <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
@@ -30,7 +31,7 @@
         <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
         <sys_update_name>sys_script_client_8bed35ffdbf23300e1ca294648961902</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2019-07-29 08:28:12</sys_updated_on>
+        <sys_updated_on>2019-07-29 09:32:24</sys_updated_on>
         <table>x_58872_needit_needit</table>
         <type>onLoad</type>
         <ui_type>0</ui_type>
