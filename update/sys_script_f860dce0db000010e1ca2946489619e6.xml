@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>false</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_58872_needit_needit_task</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>AutoAddChecklist</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+	// Add your code here
+	var checklistArr = [
+		{
+			name: 'check1'
+		},
+		{
+			name: 'check2'
+		},
+		{
+			name: 'check3'
+		}
+	];
+	//insert checklist 
+	var chk = new GlideRecord('checklist');
+	chk.initialize();
+	chk.setValue('owner', gs.getUserID());
+	chk.setValue('table', 'x_58872_needit_needit_task');
+	chk.setValue('document', current.sys_id);
+	chk.setValue('name', 'autoChk');
+	var checklistId = chk.insert();
+	
+	//insert checklist_item
+	for(var key in checklistArr){
+		var chki = new GlideRecord('checklist_item');
+		chki.initialize();
+		chki.setValue('checklist', checklistId);
+		chki.setValue('name', checklistArr[key]['name']);
+		chki.setValue('order', (parseInt(key)+1) * 100);
+		chki.insert();
+	}
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-09-19 01:44:46</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>f860dce0db000010e1ca2946489619e6</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>AutoAddChecklist</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_f860dce0db000010e1ca2946489619e6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-09-19 02:14:55</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=f860dce0db000010e1ca2946489619e6"/>
+</record_update>
