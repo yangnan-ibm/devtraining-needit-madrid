@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Test Text Index" max_length="40" name="x_58872_needit_test_text_index" text_index="true" type="collection">
+        <element display="true" label="Description" max_length="40" name="description" type="string"/>
+    </element>
+</database>
